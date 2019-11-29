@@ -11,4 +11,4 @@ $git clone https://github.com/anirbandey303/face-recognition-and-expression-dete
 
 ### Prerequisites
 Make sure this is installed on your computer.
-* ps5.js
+* p5.js
