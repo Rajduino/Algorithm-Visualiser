@@ -4,9 +4,8 @@ A javascript web application to visualise all the algorithms you encounter every
 Made with p5.js
 
 ## View web app at
-```
+
 https://rajduino.github.io/Visualiser-Project/index.html
-```
 
 ## Getting Started
 
