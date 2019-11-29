@@ -1,14 +1,12 @@
 # Algorithm Visualizer #
-A web application to visualize all the algorithms you encounter everyday!
+A javascript web application to visualise all the algorithms you encounter everyday!
+
+Made with p5.js
 
 ## Getting Started
 
 Download the ZIP file or Clone this repository from you Command Prompt or Terminal
 
 ```
-$git clone https://github.com/anirbandey303/face-recognition-and-expression-detection-openCV.git
+$git clone https://github.com/Rajduino/Visualiser-Project
 ```
-
-### Prerequisites
-Make sure this is installed on your computer.
-* p5.js
