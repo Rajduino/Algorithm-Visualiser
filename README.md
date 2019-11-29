@@ -5,7 +5,7 @@ Made with p5.js
 
 ## View web app at
 
-https://rajduino.github.io/Visualiser-Project/index.html
+https://rajduino.github.io/Algorithm-Visualiser/index.html
 
 ## Getting Started
 
