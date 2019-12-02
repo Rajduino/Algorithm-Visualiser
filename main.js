@@ -1,6 +1,9 @@
+let appWidth,appHeight; //variable to maintain the size of the app
 function setup()
 {
-	createCanvas(windowWidth,windowHeight);
+	appWidth=(windowWidth<1280)?1280:windowWidth; //minimum width of the app should be 1280 pixels and max should be the windowWidth
+	appHeight=(windowHeight<720)?720:windowHeight; //minimum height of the app should be 720 pixels and max should be the windowHeight
+	createCanvas(appWidth,appHeight);
 }
 
 function draw()
@@ -13,5 +16,7 @@ function draw()
 }
 function windowResized()
 {
-	resizeCanvas(windowWidth, windowHeight);
+	appWidth=(windowWidth<1280)?1280:windowWidth;
+	appHeight=(windowHeight<720)?720:windowHeight;
+	resizeCanvas(appWidth, appHeight);
 }
