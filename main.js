@@ -39,3 +39,40 @@ function windowResized()
 	appHeight=(windowHeight<720)?720:windowHeight;
 	resizeCanvas(appWidth, appHeight);
 }
+function searchingSelected()
+{
+	pageNo=1;
+	algoType=1;
+}
+function sortingSelected()
+{
+	pageNo=1;
+	algoType=2;
+}
+function generateArray(let n)
+{
+	arr=[];
+	for(let i=0;i<n;i++)
+	{
+		append(arr,random(1,100));
+	}
+}
+function selectionSort()
+{
+	let m;
+	for(let i=0;i<arr.length-1;i++)
+	{
+		m=i;
+		for(let j=i+1;j<arr.length;j++)
+		{
+			if(arr[m]>arr[j])
+				m=j;
+		}
+		if(m!=i)
+		{
+			let t=arr[m];
+			arr[m]=arr[i];
+			arr[i]=t;
+		}
+	}
+}
