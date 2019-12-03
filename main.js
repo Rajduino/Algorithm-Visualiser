@@ -42,7 +42,7 @@ function showSortingPage() {
     //changing display text of headings
     heading.html("Sorting Visualizer"); //Text of heading on first page
     subHeading.html("Let's visualize some sorting algorithms!!!"); //text of subheading on first page
-
+    pageNo = 1; //Setting variable value to 1 as user chose Sorting
     //hiding the buttons of first page
     firstPageBtns.hide();
 
