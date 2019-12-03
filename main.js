@@ -66,6 +66,7 @@ function windowResized()
 	appHeight=(windowHeight<720)?720:windowHeight;
 	resizeCanvas(appWidth, appHeight);
 }
+<<<<<<< HEAD
 function mousePressed()
 {
 	console.log("called");
@@ -74,6 +75,8 @@ function mousePressed()
 	iterator=0;
 	//selectionSort();
 }
+=======
+>>>>>>> 12043e135563ee4c7514afa0a538d577e39bf4e1
 function searchingSelected()
 {
 	pageNo=1;
@@ -84,6 +87,7 @@ function sortingSelected()
 	pageNo=1;
 	algoType=2;
 }
+<<<<<<< HEAD
 function generateArray(n)
 {
 	arr=[];
@@ -113,6 +117,19 @@ function selectionSort()
 			m=i;
 	}
 	max=arr[m];
+=======
+function generateArray(let n)
+{
+	arr=[];
+	for(let i=0;i<n;i++)
+	{
+		append(arr,random(1,100));
+	}
+}
+function selectionSort()
+{
+	let m;
+>>>>>>> 12043e135563ee4c7514afa0a538d577e39bf4e1
 	for(let i=0;i<arr.length-1;i++)
 	{
 		m=i;
@@ -128,6 +145,7 @@ function selectionSort()
 			arr[i]=t;
 		}
 	}
+<<<<<<< HEAD
 }
 */
 function selectionSortS(d)
@@ -158,4 +176,6 @@ function myDelay(deltaT)
 {
 	let startT=millis();
 	while(millis() < startT + deltaT);
+=======
+>>>>>>> 12043e135563ee4c7514afa0a538d577e39bf4e1
 }
