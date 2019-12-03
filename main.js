@@ -11,36 +11,43 @@ let arr = []; //array to store the required elements for the required algorithm
 //firstPageBtns: variable to select all buttons on first page(selects entire div)
 //backBtn: variable that will link to previous page
 //selectionSort, mergeSort, bubbleSort: selecting the sorting buttons from html and storing inside them
-let pageNo, algoType, algoNo;
+let pageNo, algoType, algoNo, sorted, iterator;
+let graphWidth, graphHeight, barWidth, max, graphPadLeft, graphPadTop;
 let sortBtn, searchBtn, treeBtn, firstPageBtns, backBtn;
-var heading, subheading;
+var heading, subheading, firstPageFooter;
 var sortPageBtns;
-var selectionSort, mergeSort, bubbleSort;
+var selectionSort, mergeSort, bubbleSort, btnForArrayGeneration;
+
 
 function setup() {
     appWidth = (windowWidth < 1280) ? 1280 : windowWidth; //minimum width of the app should be 1280 pixels and max should be the windowWidth
     appHeight = (windowHeight < 720) ? 720 : windowHeight; //minimum height of the app should be 720 pixels and max should be the windowHeight
     createCanvas(appWidth, appHeight);
     pageNo = 0;
-    algoType = 0;
+    algoType = 0; //** */
     algoNo = 0;
     firstPageBtns = select('#btns'); //storing all btns in of first page in a variable
+    firstPageFooter = select('#firstPageFooter');
     sortPageBtns = select('#allSortButtons'); //storing the div containing all sort related buttons
     backBtn = createButton('Back'); //creating a back button
     backBtn.addClass('btn');
     backBtn.addClass('btn-danger');
+    backBtn.position(appWidth * 0.02, appHeight * 0.237)
     selectionSort = select('#selectionSort');
     mergeSort = select('#mergeSort');
     bubbleSort = select('#bubbleSort');
+    btnForArrayGeneration = select('#btnForArrayGeneration');
     showLandingPage(); //show first page
 }
 /*------------ Landing Page------------------*/
 function showLandingPage() {
+    arr = [];
     heading = select("#heading"); //Select heading on index page
     subHeading = select("#subheading"); //Select sub-heading part on index page
     heading.html("Algorithm Visualizer"); //Text of heading on first page
-    subHeading.html("Welcome! Watch animations of all Data Structures and Algorithms in Real time"); //text of subheading on first page
+    subHeading.html("Watch animations of all Data Structures & Algorithms in Real time"); //text of subheading on first page
     firstPageBtns.show(); //show all buttons of first page
+    firstPageFooter.show(); //show entire footer on first page
     backBtn.hide(); //Hiding back button on first page
     sortPageBtns.hide() //hiding sort page buttons
     sortBtn = select('#sort');
@@ -58,34 +65,59 @@ function showSortingPage() {
     pageNo = 1; //Setting variable value to 1 as user chose Sorting
 
     firstPageBtns.hide(); //hiding the buttons of first page
+    firstPageFooter.hide(); //hiding the footer that was on the landing page.
     sortPageBtns.show(); //showing sort page buttons
 
     //adding a back button
     backBtn.show()
     backBtn.mousePressed(showLandingPage);
 
+    //generating and displaying the random array bars
+    btnForArrayGeneration.mousePressed(createTheArray);
+
     //calling each function when clicked on given algorithm
     selectionSort.mousePressed(selectionSortSelected);
     mergeSort.mousePressed(mergeSortSelected);
     bubbleSort.mousePressed(bubbleSortSelected);
-
 }
 /* -------End of Sorting Page --------------*/
+function createTheArray() {
+    generateArray(10);
+}
 
 function draw() {
+    graphWidth = appWidth * 0.6;
+    graphHeight = appHeight * 0.6;
+    barWidth = graphWidth / arr.length;
+    graphPadLeft = appWidth * 0.2;
+    graphPadTop = appHeight * 0.3;
     clear();
-    background(200, 0, 100);
+    //background(200, 0, 100);
+    background(247, 185, 199);
+    fill(0, 200, 200);
     //switch case to maintain required pages with pageNo value
     switch (pageNo) {
         case 0:
 
             break;
         case 1:
+            if (algoType === 1) {
 
+            } else if (algoType === 2) {
+                if (algoNo === 1) {
+                    if (sorted === false) {
+                        sorted = selectionSortS(iterator);
+                        iterator = iterator + 1;
+                    }
+                }
+            }
             break;
         case 2:
 
             break;
+    }
+    for (let i = 0; i < arr.length; i++) {
+        rect(graphPadLeft + i * barWidth, graphPadTop + (max - arr[i]) * graphHeight / max, barWidth, arr[i] * graphHeight / max);
     }
 }
 
@@ -95,9 +127,29 @@ function windowResized() {
     resizeCanvas(appWidth, appHeight);
 }
 
+function mousePressed() {
+    console.log("called");
+    pageNo = 1;
+    sorted = false;
+    iterator = 0;
+    //selectionSort();
+}
+
+function generateArray(n) {
+    algoNo = 0;
+    arr = [];
+    max = 0;
+    for (let i = 0; i < n; i++) {
+        append(arr, (int)(100 * random()));
+        if (max < arr[i])
+            max = arr[i];
+    }
+}
+
 function selectionSortSelected() {
     pageNo = 1;
-    algoType = 1;
+    algoType = 2;
+    algoNo = 1;
 
     heading.html("Selection Sort"); //Text of heading on first page
     /* Making button look selected */
@@ -106,12 +158,12 @@ function selectionSortSelected() {
     mergeSort.removeClass("active");
     /* Making button look selected  END*/
 
-
 }
 
 function mergeSortSelected() {
     pageNo = 1;
     algoType = 2;
+    algoNo = 2;
     heading.html("Merge Sort"); //Text of heading on first page
     /* Making button look selected */
     selectionSort.removeClass("active");
@@ -122,7 +174,8 @@ function mergeSortSelected() {
 
 function bubbleSortSelected() {
     pageNo = 1;
-    algoType = 3;
+    algoType = 2;
+    algoNo = 3;
     heading.html("Bubble Sort"); //Text of heading on first page
     /* Making button look selected */
     selectionSort.removeClass("active");
@@ -131,25 +184,29 @@ function bubbleSortSelected() {
     /* Making button look selected  END*/
 }
 
-// function generateArray(let n) {
-//     arr = [];
-//     for (let i = 0; i < n; i++) {
-//         append(arr, (int)(100 * random()));
-//     }
-// }
-
-function selectionSort() {
-    let m;
-    for (let i = 0; i < arr.length - 1; i++) {
-        m = i;
-        for (let j = i + 1; j < arr.length; j++) {
-            if (arr[m] > arr[j])
-                m = j;
-        }
-        if (m != i) {
-            let t = arr[m];
-            arr[m] = arr[i];
-            arr[i] = t;
-        }
+function selectionSortS(d) {
+    let y, m, t, n;
+    myDelay(500);
+    n = arr.length;
+    if (d >= n)
+        return true;
+    m = d;
+    for (y = d + 1; y < n; y++) {
+        if (arr[m] > arr[y])
+            m = y;
     }
+    if (m != d) {
+        t = arr[m];
+        arr[m] = arr[d];
+        arr[d] = t;
+    }
+    if (d < (n - 1))
+        return false;
+    else
+        return true;
+}
+
+function myDelay(deltaT) {
+    let startT = millis();
+    while (millis() < startT + deltaT);
 }
