@@ -52,41 +52,25 @@ function showSortingPage() {
 
 }
 
+function draw() {
+    clear();
+    background(200, 0, 100);
+    //switch case to maintain required pages with pageNo value
+    switch (pageNo) {
+        case 0:
+
+            break;
+        case 1:
+
+            break;
+        case 2:
+
+            break;
+    }
+}
+
 function windowResized() {
     appWidth = (windowWidth < 1280) ? 1280 : windowWidth;
     appHeight = (windowHeight < 720) ? 720 : windowHeight;
     resizeCanvas(appWidth, appHeight);
-}
-
-function searchingSelected() {
-    pageNo = 1;
-    algoType = 1;
-}
-
-function sortingSelected() {
-    pageNo = 1;
-    algoType = 2;
-}
-
-function generateArray(let n) {
-    arr = [];
-    for (let i = 0; i < n; i++) {
-        append(arr, random(1, 100));
-    }
-}
-
-function selectionSort() {
-    let m;
-    for (let i = 0; i < arr.length - 1; i++) {
-        m = i;
-        for (let j = i + 1; j < arr.length; j++) {
-            if (arr[m] > arr[j])
-                m = j;
-        }
-        if (m != i) {
-            let t = arr[m];
-            arr[m] = arr[i];
-            arr[i] = t;
-        }
-    }
 }
