@@ -20,32 +20,52 @@
 
 <body>
     <div class="container">
-        <div id="" class="col-md-12">
-            <!-- DIV containing heading and sub heading-->
-            <div id="" class="row">
-                <div id="" class="col-md-12">
-                    <h1 align="center" id="heading"></h1>
-                    <h4 align="center" id="subheading"></h4>
-                </div>
+
+        <!-- DIV containing heading and sub heading-->
+        <div id="" class="row">
+            <div id="" class="col-md-12">
+                <h1 align="center" id="heading"></h1>
+                <h4 align="center" id="subheading"></h4>
             </div>
-            <!-- DIV containing all buttons-->
-            <div id="btns" class="row">
-                <div class="col-md-12">
-                    <div id="myMenuBtns" class="btn-group btn-group-toggle" data-toggle="buttons">
-                        <label id="sort" class="btn btn-secondary active">
+        </div>
+        <!-- DIV containing all buttons-->
+        <div id="btns" class="row">
+            <div class="col-md-12">
+                <div id="myMenuBtns" class="btn-group btn-group-toggle" data-toggle="buttons">
+                    <label id="sort" class="btn btn-secondary btn-lg">
                             <input type="radio" name="options"  autocomplete="off" checked> Sorting
                         </label>
-                        <label id="search" class="btn btn-secondary">
+                    <label id="search" class="btn btn-secondary btn-lg">
                             <input type="radio" name="options"  autocomplete="off"> Searching
                         </label>
-                        <label id="tree" class="btn btn-secondary">
+                    <label id="tree" class="btn btn-secondary btn-lg">
                             <input type="radio" name="options"  autocomplete="off"> Tree Travarsal
                         </label>
-                    </div>
                 </div>
             </div>
-
         </div>
+        <!--DIV for all sort page buttons-->
+        <div id="allSortButtons" class="row">
+            <div class="col-md-12">
+                <div id="myMenuBtns" class="btn-group btn-group-toggle" data-toggle="buttons">
+                    <label id="selectionSort" class="btn btn-secondary btn-lg">
+                            <input type="radio" name="options"  autocomplete="off" checked> Selection Sort
+                        </label>
+                    <label id="mergeSort" class="btn btn-secondary btn-lg">
+                            <input type="radio" name="options"  autocomplete="off"> Merge Sort
+                        </label>
+                    <label id="bubbleSort" class="btn btn-secondary btn-lg">
+                            <input type="radio" name="options"  autocomplete="off"> Bubble Sort
+                        </label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12" offset-md-1 style="padding:5px">
+                    <button type="button" class="btn btn-primary btn-lg">Generate Array</button>
+                </div>
+            </div>
+        </div>
+
     </div>
 </body>
 
