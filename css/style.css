@@ -1,0 +1,60 @@
+body {
+    padding: 30px;
+    margin: 0;
+    text-align: center;
+    font-family: 'Open Sans', serif;
+    color: #868e96;
+}
+
+canvas {
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    z-index: -1
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: 'Saira Extra Condensed', serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: #343a40;
+}
+
+h1 {
+    font-size: 4rem;
+    line-height: 5rem;
+}
+
+h2 {
+    font-size: 3.5rem;
+}
+
+#btns {
+    margin-top: 150px;
+    text-align: center;
+}
+
+.subheading {
+    text-transform: uppercase;
+    font-weight: 500;
+    font-family: 'Saira Extra Condensed', serif;
+    font-size: 1.35rem
+}
+
+.footer {
+    display: block;
+    padding: 10px;
+    text-align: justify;
+    margin-top: 200px
+}
+
+.footer .text {
+    font-size: 15px;
+    font-style: oblique;
+    text-align: center
+}
