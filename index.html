@@ -5,9 +5,11 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Algorithm Visualizer | Project</title>
+    <!--Bootstrap CSS Linking-->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <style>
         body {
-            padding: 0;
+            padding: 50px;
             margin: 0;
         }
         
@@ -21,11 +23,30 @@
     <script src="p5.js"></script>
     <script src="p5.sound.js"></script>
     <script src="main.js"></script>
+    <script src="quick-sort.js"></script>
 </head>
 
 <body>
-    <h1 align="center"> Algorithm Visualizer</h1>
-    <h4 align="center">Welcome! Watch animations of all Data Structures and Algorithms in Real time</h4>
+    <div class="container">
+        <h1 align="center" id="heading"></h1>
+        <h4 align="center" id="subheading"></h4>
+    </div>
+    <!-- <div class="buttons">
+        <button type="button" class="btn btn-outline-primary btn-lg">SORT</button>
+        <button type="button" class="btn btn-outline-primary btn-dis">Search</button>
+        <button type="button" class="btn btn-outline-primary">Tree Travarsal</button>
+    </div> -->
+    <div id="myMenuBtns" class="btn-group btn-group-toggle" data-toggle="buttons">
+        <label class="btn btn-secondary active">
+          <input type="radio" name="options" id="option1" autocomplete="off" checked> Sorting
+        </label>
+        <label class="btn btn-secondary">
+          <input type="radio" name="options" id="option2" autocomplete="off"> Searching
+        </label>
+        <label class="btn btn-secondary">
+          <input type="radio" name="options" id="option3" autocomplete="off"> Tree Travarsal
+        </label>
+    </div>
 </body>
 
 </html>
