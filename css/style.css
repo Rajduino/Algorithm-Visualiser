@@ -1,0 +1,17 @@
+body {
+    padding: 50px;
+    margin: 0;
+    text-align: center;
+}
+
+canvas {
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    z-index: -1
+}
+
+#btns {
+    margin-top: 150px;
+    text-align: center;
+}

@@ -28,5 +28,5 @@ function mergesort(arr) {
         return merge(mergesort(leftArr), mergesort(rightArr));
     }
 }
-console.log('This should be the sorted array!')
+console.log('sorted array=')
 console.log(mergesort(unsortedArr));
