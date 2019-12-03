@@ -152,6 +152,7 @@ function selectionSortSelected() {
     algoNo = 1;
 
     heading.html("Selection Sort"); //Text of heading on first page
+    subHeading.html("It's worst case complexity is O(n<sup>2</sup>). Pretty bad huh?"); //sub-heading text shown upon selecting this sort/search
     /* Making button look selected */
     selectionSort.addClass("active");
     bubbleSort.removeClass("active");
@@ -165,6 +166,7 @@ function mergeSortSelected() {
     algoType = 2;
     algoNo = 2;
     heading.html("Merge Sort"); //Text of heading on first page
+    subHeading.html("It's worst case complexity is O(n*log(n)). Not Bad!!"); //sub-heading text shown upon selecting this sort/search
     /* Making button look selected */
     selectionSort.removeClass("active");
     bubbleSort.removeClass("active");
@@ -177,6 +179,7 @@ function bubbleSortSelected() {
     algoType = 2;
     algoNo = 3;
     heading.html("Bubble Sort"); //Text of heading on first page
+    subHeading.html("Did you know? It's worst case complexity is O(n<sup>2</sup>)."); //sub-heading text shown upon selecting this sort/search
     /* Making button look selected */
     selectionSort.removeClass("active");
     bubbleSort.addClass("active");
