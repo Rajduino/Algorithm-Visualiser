@@ -26,20 +26,21 @@ function setup() {
     pageNo = 0;
     algoType = 0; //** */
     algoNo = 0;
-    firstPageBtns = select('#btns'); //storing all btns in of first page in a variable
-    firstPageFooter = select('#firstPageFooter');
-    sortPageBtns = select('#allSortButtons'); //storing the div containing all sort related buttons
-    backBtn = createButton('Back'); //creating a back button
-    backBtn.addClass('btn');
-    backBtn.addClass('btn-danger');
-    backBtn.position(appWidth * 0.02, appHeight * 0.237)
-    selectionSort = select('#selectionSort');
-    mergeSort = select('#mergeSort');
-    bubbleSort = select('#bubbleSort');
-    btnForArrayGeneration = select('#btnForArrayGeneration');
-    showLandingPage(); //show first page
+    //firstPageBtns = select('#btns'); //storing all btns in of first page in a variable
+    //firstPageFooter = select('#firstPageFooter');
+    //sortPageBtns = select('#allSortButtons'); //storing the div containing all sort related buttons
+    //backBtn = createButton('Back'); //creating a back button
+    //backBtn.addClass('btn');
+    //backBtn.addClass('btn-danger');
+    //backBtn.position(appWidth * 0.02, appHeight * 0.237)
+    //selectionSort = select('#selectionSort');
+    //mergeSort = select('#mergeSort');
+    //bubbleSort = select('#bubbleSort');
+    //btnForArrayGeneration = select('#btnForArrayGeneration');
+    //showLandingPage(); //show first page
 }
-/*------------ Landing Page------------------*/
+/*
+/*------------ Landing Page------------------
 function showLandingPage() {
     arr = [];
     heading = select("#heading"); //Select heading on index page
@@ -53,9 +54,10 @@ function showLandingPage() {
     sortBtn = select('#sort');
     sortBtn.mousePressed(showSortingPage);
 }
-/* ------- End of Landing Page ----------*/
-
-/*--------------------- Sorting Selected Page ----------------*/
+// ------- End of Landing Page ----------
+*/
+/*
+/*--------------------- Sorting Selected Page ----------------
 function showSortingPage() {
     // pageNo = 1;
     // algoType = 2;
@@ -80,10 +82,13 @@ function showSortingPage() {
     mergeSort.mousePressed(mergeSortSelected);
     bubbleSort.mousePressed(bubbleSortSelected);
 }
-/* -------End of Sorting Page --------------*/
+/* -------End of Sorting Page --------------
+*/
+/*
 function createTheArray() {
     generateArray(10);
 }
+*/
 
 function draw() {
     graphWidth = appWidth * 0.6;
@@ -98,22 +103,48 @@ function draw() {
     //switch case to maintain required pages with pageNo value
     switch (pageNo) {
         case 0:
-
+            rect(graphPadLeft,graphPadTop,400,200);
+            rect(graphPadLeft+405,graphPadTop,400,200);
+            fill(0);
+            text("Searching Algorithms",graphPadLeft,graphPadTop+20);
+            text("Sorting Algorithms",graphPadLeft+405,graphPadTop+20);
             break;
         case 1:
-            if (algoType === 1) {
+            if (algoType === 1)
+            {
+                rect(graphPadLeft,graphPadTop,400,200);
+                rect(graphPadLeft+405,graphPadTop,400,200);
+                fill(0);
+                text("Linear Search",graphPadLeft,graphPadTop+20);
+                text("Binary Search",graphPadLeft+405,graphPadTop+20);
+            }
+            else if(algoType===2)
+            {
+                rect(graphPadLeft,graphPadTop,400,200);
+                rect(graphPadLeft+405,graphPadTop,400,200);
+                fill(0);
+                text("Selection Sort",graphPadLeft,graphPadTop+20);
+                text("Bubble Sort",graphPadLeft+405,graphPadTop+20);
+            }
+            break;
+        case 2:
+            if (algoType === 1)
+            {
+                if(algoNo===1)
+                {
 
-            } else if (algoType === 2) {
-                if (algoNo === 1) {
+                }
+            }
+            else if(algoType===2)
+            {
+                if(algoNo===1)
+                {
                     if (sorted === false) {
                         sorted = selectionSortS(iterator);
                         iterator = iterator + 1;
                     }
                 }
             }
-            break;
-        case 2:
-
             break;
     }
     for (let i = 0; i < arr.length; i++) {
@@ -128,15 +159,56 @@ function windowResized() {
 }
 
 function mousePressed() {
-    console.log("called");
-    pageNo = 1;
-    sorted = false;
-    iterator = 0;
-    //selectionSort();
+    switch (pageNo) {
+        case 0:
+            if(mouseX> graphPadLeft && mouseX< graphPadLeft+400 && mouseY>graphPadTop && mouseY<graphPadTop+200)
+            {
+                pageNo++;
+                algoType=1;
+            }
+            else if(mouseX> graphPadLeft+405 && mouseX< graphPadLeft+405+400 && mouseY>graphPadTop && mouseY<graphPadTop+200)
+            {
+                pageNo++;
+                algoType=2;
+            }
+            break;
+        case 1:
+            if (algoType === 1) 
+            {
+                if(mouseX> graphPadLeft && mouseX< graphPadLeft+400 && mouseY>graphPadTop && mouseY<graphPadTop+200)
+                {
+                    pageNo++;
+                    algoNo=1;
+                }
+                else if(mouseX> graphPadLeft+405 && mouseX< graphPadLeft+405+400 && mouseY>graphPadTop && mouseY<graphPadTop+200)
+                {
+                    pageNo++;
+                    algoNo=2;
+                }
+            }
+            else if (algoType === 2)
+            {
+                if(mouseX> graphPadLeft && mouseX< graphPadLeft+400 && mouseY>graphPadTop && mouseY<graphPadTop+200)
+                {
+                    pageNo++;
+                    algoNo=1;
+                    sorted=false;
+                    generateArray(10);
+                    iterator=0;
+                }
+                else if(mouseX> graphPadLeft+405 && mouseX< graphPadLeft+405+400 && mouseY>graphPadTop && mouseY<graphPadTop+200)
+                {
+                    pageNo++;
+                    algoNo=2;
+                }
+            }
+            break;
+        case 2:
+            break;
+    }
 }
 
 function generateArray(n) {
-    algoNo = 0;
     arr = [];
     max = 0;
     for (let i = 0; i < n; i++) {
@@ -145,6 +217,7 @@ function generateArray(n) {
             max = arr[i];
     }
 }
+/*
 
 function selectionSortSelected() {
     pageNo = 1;
@@ -153,11 +226,11 @@ function selectionSortSelected() {
 
     heading.html("Selection Sort"); //Text of heading on first page
     subHeading.html("It's worst case complexity is O(n<sup>2</sup>). Pretty bad huh?"); //sub-heading text shown upon selecting this sort/search
-    /* Making button look selected */
+    /* Making button look selected 
     selectionSort.addClass("active");
     bubbleSort.removeClass("active");
     mergeSort.removeClass("active");
-    /* Making button look selected  END*/
+    /* Making button look selected  END
 
 }
 
@@ -167,11 +240,11 @@ function mergeSortSelected() {
     algoNo = 2;
     heading.html("Merge Sort"); //Text of heading on first page
     subHeading.html("It's worst case complexity is O(n*log(n)). Not Bad!!"); //sub-heading text shown upon selecting this sort/search
-    /* Making button look selected */
+    /* Making button look selected 
     selectionSort.removeClass("active");
     bubbleSort.removeClass("active");
     mergeSort.addClass("active");
-    /* Making button look selected  END*/
+    /* Making button look selected  END
 }
 
 function bubbleSortSelected() {
@@ -180,13 +253,13 @@ function bubbleSortSelected() {
     algoNo = 3;
     heading.html("Bubble Sort"); //Text of heading on first page
     subHeading.html("Did you know? It's worst case complexity is O(n<sup>2</sup>)."); //sub-heading text shown upon selecting this sort/search
-    /* Making button look selected */
+    /* Making button look selected 
     selectionSort.removeClass("active");
     bubbleSort.addClass("active");
     mergeSort.removeClass("active");
-    /* Making button look selected  END*/
+    /* Making button look selected  END
 }
-
+*/
 function selectionSortS(d) {
     let y, m, t, n;
     myDelay(500);
